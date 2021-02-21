@@ -3,7 +3,7 @@ const addItem = function (e) {
 const listItem = document.createElement('li');
 // Alter the HTML content of the created <li> tag above 
 listItem.innerHTML =  `
-<span class="click">${document.getElementById('input_box').value}</span>
+<span class="click task-item">${document.getElementById('input_box').value}</span>
 <span class="click blue">(Edit)</span>
 <span class="click" style="color: red">(Remove)</span>
 `
@@ -14,14 +14,12 @@ document.getElementById('input_box').value = "";
 }
 
 const completeItem = function (e) {
-if(e.target.localName === 'li') {
-  e.target.innerHTML = '<del>' +
-  e.target.innerHTML + '</del>';
-
+if(e.target.style.textDecoration === 'line-through') {
+  e.target.style.textDecoration = 'none' 
 } else {
-  e.target.parentElement.innerHTML = 
+  e.target.style.textDecoration = 'line-through';
   e.target.innerHTML;
-}
+  }
 }
 
 const removeItem = function (e) {
@@ -30,7 +28,7 @@ const removeItem = function (e) {
 
 // document.getElementById('item).addEventListener('click', completeItem);
 
-for (i of document.querySelectorAll('.item')) {
+for (i of document.querySelectorAll('.task-item')) {
   i.addEventListener('click', completeItem)
 }
 
