@@ -7,6 +7,8 @@ listItem.innerHTML =  `
 <span class="click blue">(Edit)</span>
 <span class="click" style="color: red">(Remove)</span>
 `
+// Add event listeners to the newly create items in <li> element
+listItem.querySelectorAll('.task-item')[0].addEventListener('click',completeItem);
 // Append the created <li> element into <ul> element in HTML
 document.getElementById('ul_list').appendChild(listItem);
 // Empty the add Item input value
